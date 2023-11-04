@@ -1,5 +1,6 @@
 package com.cs407.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -40,8 +41,8 @@ public class DateSelectionActivity extends AppCompatActivity {
         buttonNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Handle the "Next" button click, e.g., navigate to the next activity or perform other actions
-                // You can use the selectedDate variable here to access the chosen date
+                Intent intent = new Intent(DateSelectionActivity.this, CheckPastSchedule.class);
+                startActivity(intent);
             }
         });
     }

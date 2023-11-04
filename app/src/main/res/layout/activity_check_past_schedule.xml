@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <CheckBox
+        android:id="@+id/checkbox_import_schedule"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Do you want to import the same schedule from the past day"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp" />
+
+    <Button
+        android:id="@+id/button_back_to_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back to Start"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/checkbox_import_schedule"
+        android:layout_marginTop="10dp" />
+
+    <Button
+        android:id="@+id/button_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Next"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/checkbox_import_schedule"
+        android:layout_marginTop="10dp" />
+</RelativeLayout>
+
+
