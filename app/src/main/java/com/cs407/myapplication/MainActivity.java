@@ -1,5 +1,6 @@
 package com.cs407.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -29,8 +30,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(checkBoxHealthy.isChecked() && checkBoxEnergized.isChecked() && checkBoxReady.isChecked()) {
-                    // Here you can add your intent to go to another activity or any other logic you want.
-                    Toast.makeText(MainActivity.this, "Proceeding...", Toast.LENGTH_SHORT).show();
+                    // Launch the DateSelectionActivity when all checkboxes are checked
+                    Intent intent = new Intent(MainActivity.this, DateSelectionActivity.class);
+                    startActivity(intent);
                 } else {
                     // Show a message if all checkboxes are not checked
                     Toast.makeText(MainActivity.this, "You need to check all boxes to continue!", Toast.LENGTH_SHORT).show();
@@ -44,5 +46,6 @@ public class MainActivity extends AppCompatActivity {
         buttonStart.setOnClickListener(buttonClickListener);
     }
 }
+
 
 
