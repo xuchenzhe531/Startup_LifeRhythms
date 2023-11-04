@@ -1,6 +1,7 @@
 package com.cs407.myapplication;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Toast;
@@ -8,8 +9,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    CheckBox checkBoxHealthy, checkBoxEnergized, checkBoxReady;
-    Button buttonGoToWork, buttonShowMyWork;
+    private CheckBox checkBoxHealthy, checkBoxEnergized, checkBoxReady;
+    private Button buttonGoToWork, buttonShowMyWork, buttonStart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,45 +20,28 @@ public class MainActivity extends AppCompatActivity {
         checkBoxHealthy = findViewById(R.id.checkBoxHealthy);
         checkBoxEnergized = findViewById(R.id.checkBoxEnergized);
         checkBoxReady = findViewById(R.id.checkBoxReady);
+
         buttonGoToWork = findViewById(R.id.buttonGoToWork);
         buttonShowMyWork = findViewById(R.id.buttonShowMyWork);
+        buttonStart = findViewById(R.id.buttonStart);
 
-        CheckBox.OnCheckedChangeListener checkedChangeListener = (buttonView, isChecked) -> checkAllCheckboxes();
+        View.OnClickListener buttonClickListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(checkBoxHealthy.isChecked() && checkBoxEnergized.isChecked() && checkBoxReady.isChecked()) {
+                    // Here you can add your intent to go to another activity or any other logic you want.
+                    Toast.makeText(MainActivity.this, "Proceeding...", Toast.LENGTH_SHORT).show();
+                } else {
+                    // Show a message if all checkboxes are not checked
+                    Toast.makeText(MainActivity.this, "You need to check all boxes to continue!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        };
 
-        checkBoxHealthy.setOnCheckedChangeListener(checkedChangeListener);
-        checkBoxEnergized.setOnCheckedChangeListener(checkedChangeListener);
-        checkBoxReady.setOnCheckedChangeListener(checkedChangeListener);
-
-        buttonGoToWork.setOnClickListener(v -> goToWork());
-        buttonShowMyWork.setOnClickListener(v -> showMyWork());
-    }
-
-    private void checkAllCheckboxes() {
-        boolean allChecked = checkBoxHealthy.isChecked() && checkBoxEnergized.isChecked() && checkBoxReady.isChecked();
-        buttonGoToWork.setEnabled(allChecked);
-        buttonShowMyWork.setEnabled(allChecked);
-    }
-
-    private void goToWork() {
-        if (buttonGoToWork.isEnabled()) {
-            // Go to work logic
-            Toast.makeText(this, "Going to work!", Toast.LENGTH_SHORT).show();
-        } else {
-            showCheckboxWarning();
-        }
-    }
-
-    private void showMyWork() {
-        if (buttonShowMyWork.isEnabled()) {
-            // Show my work logic
-            Toast.makeText(this, "Here is my work!", Toast.LENGTH_SHORT).show();
-        } else {
-            showCheckboxWarning();
-        }
-    }
-
-    private void showCheckboxWarning() {
-        Toast.makeText(this, "You need to check all boxes to continue", Toast.LENGTH_SHORT).show();
+        // Set the same click listener for all buttons
+        buttonGoToWork.setOnClickListener(buttonClickListener);
+        buttonShowMyWork.setOnClickListener(buttonClickListener);
+        buttonStart.setOnClickListener(buttonClickListener);
     }
 }
 

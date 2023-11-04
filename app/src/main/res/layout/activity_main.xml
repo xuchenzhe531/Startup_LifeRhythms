@@ -1,52 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp">
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Welcome to LifeRhythms"
-        android:textSize="24sp" />
 
     <CheckBox
         android:id="@+id/checkBoxHealthy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/textView"
-        android:text="I am healthy" />
+        android:text="I am healthy"/>
 
     <CheckBox
         android:id="@+id/checkBoxEnergized"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/checkBoxHealthy"
-        android:text="I am energized" />
+        android:text="I am energized"/>
 
     <CheckBox
         android:id="@+id/checkBoxReady"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/checkBoxEnergized"
-        android:text="I am ready" />
+        android:text="I am ready"/>
 
     <Button
         android:id="@+id/buttonGoToWork"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/checkBoxReady"
-        android:text="Go to Work"
-        android:enabled="false"/>
+        android:text="Go to Work"/>
 
     <Button
         android:id="@+id/buttonShowMyWork"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/buttonGoToWork"
-        android:text="Show my work"
-        android:enabled="false"/>
+        android:text="Show my work"/>
 
-</RelativeLayout>
+    <Button
+        android:id="@+id/buttonStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start"/>
+
+</LinearLayout>
+
 
