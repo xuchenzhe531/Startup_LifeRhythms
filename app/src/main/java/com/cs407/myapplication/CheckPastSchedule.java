@@ -15,7 +15,6 @@ public class CheckPastSchedule extends AppCompatActivity {
     private Button nextButton;
     private boolean isCheckBoxChecked;
 
-    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +42,7 @@ public class CheckPastSchedule extends AppCompatActivity {
             // Proceed to the next activity or whatever needs to be done next
             // You can also pass the state of 'isCheckBoxChecked' if needed
             Intent intent = new Intent(CheckPastSchedule.this, InsertActivity.class);
+
             startActivity(intent);
         });
     }
