@@ -41,7 +41,8 @@ public class CheckPastSchedule extends AppCompatActivity {
         nextButton.setOnClickListener(v -> {
             // Proceed to the next activity or whatever needs to be done next
             // You can also pass the state of 'isCheckBoxChecked' if needed
-            Intent intent = new Intent(CheckPastSchedule.this, ChoosePastScheduleTime.class);
+            Intent intent = new Intent(CheckPastSchedule.this, InsertActivity.class);
+
             startActivity(intent);
         });
     }
