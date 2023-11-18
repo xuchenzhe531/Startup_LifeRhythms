@@ -26,26 +26,55 @@ public class MainActivity extends AppCompatActivity {
         buttonShowMyWork = findViewById(R.id.buttonShowMyWork);
         buttonStart = findViewById(R.id.buttonStart);
 
-        View.OnClickListener buttonClickListener = new View.OnClickListener() {
+        buttonGoToWork.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(checkBoxHealthy.isChecked() && checkBoxEnergized.isChecked() && checkBoxReady.isChecked()) {
-                    // Launch the DateSelectionActivity when all checkboxes are checked
+                if (allCheckBoxesChecked()) {
+                    // Launch an activity for GoToWork
                     Intent intent = new Intent(MainActivity.this, DateSelectionActivity.class);
                     startActivity(intent);
                 } else {
-                    // Show a message if all checkboxes are not checked
-                    Toast.makeText(MainActivity.this, "You need to check all boxes to continue!", Toast.LENGTH_SHORT).show();
+                    showCheckboxWarning();
                 }
             }
-        };
+        });
 
-        // Set the same click listener for all buttons
-        buttonGoToWork.setOnClickListener(buttonClickListener);
-        buttonShowMyWork.setOnClickListener(buttonClickListener);
-        buttonStart.setOnClickListener(buttonClickListener);
+        buttonShowMyWork.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (allCheckBoxesChecked()) {
+                    // Launch an activity for ShowMyWork
+                    //Intent intent = new Intent(MainActivity.this, ShowMyWorkActivity.class);
+                    //startActivity(intent);
+                } else {
+                    showCheckboxWarning();
+                }
+            }
+        });
+
+        buttonStart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (allCheckBoxesChecked()) {
+                    // Launch an activity for Start
+                    //Intent intent = new Intent(MainActivity.this, StartActivity.class);
+                    //startActivity(intent);
+                } else {
+                    showCheckboxWarning();
+                }
+            }
+        });
+    }
+
+    private boolean allCheckBoxesChecked() {
+        return checkBoxHealthy.isChecked() && checkBoxEnergized.isChecked() && checkBoxReady.isChecked();
+    }
+
+    private void showCheckboxWarning() {
+        Toast.makeText(MainActivity.this, "You need to check all boxes to continue!", Toast.LENGTH_SHORT).show();
     }
 }
+
 
 
 

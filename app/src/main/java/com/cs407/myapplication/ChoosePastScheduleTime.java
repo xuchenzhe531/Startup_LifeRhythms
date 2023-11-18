@@ -60,6 +60,8 @@ public class ChoosePastScheduleTime extends AppCompatActivity {
                 // Log the selected date or perform an action
                 Log.i("DatePickerActivity", "Selected date: " + selectedDay + "/" + (selectedMonth + 1) + "/" + selectedYear);
                 // Perform action for "Next"
+                Intent intent = new Intent(ChoosePastScheduleTime.this, InsertActivity.class);
+                startActivity(intent);
             }
         });
     }

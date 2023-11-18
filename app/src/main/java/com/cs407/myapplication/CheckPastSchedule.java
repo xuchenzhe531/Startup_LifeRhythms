@@ -29,7 +29,6 @@ public class CheckPastSchedule extends AppCompatActivity {
             // Store the checkbox status in a variable
             isCheckBoxChecked = isChecked;
         });
-
         // Set a listener for the back button
         backButton.setOnClickListener(v -> {
             // Intent to go back to MainActivity
@@ -41,9 +40,13 @@ public class CheckPastSchedule extends AppCompatActivity {
         nextButton.setOnClickListener(v -> {
             // Proceed to the next activity or whatever needs to be done next
             // You can also pass the state of 'isCheckBoxChecked' if needed
-            Intent intent = new Intent(CheckPastSchedule.this, InsertActivity.class);
-
-            startActivity(intent);
+            if(isCheckBoxChecked == true){
+                Intent intent = new Intent(CheckPastSchedule.this, ChoosePastScheduleTime.class);
+                startActivity(intent);
+            }else{
+                Intent intent = new Intent(CheckPastSchedule.this, InsertActivity.class);
+                startActivity(intent);
+            }
         });
     }
 }

@@ -21,6 +21,8 @@
         <activity
             android:name=".DateSelectionActivity"
             android:exported="false" />
+        <activity android:name=".ChoosePastScheduleTime"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
